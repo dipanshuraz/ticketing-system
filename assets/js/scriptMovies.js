@@ -26,7 +26,7 @@ xhr.onload = function () {
 // Create and send a GET request
 // The first argument is the post type (GET, POST, PUT, DELETE, etc.)
 // The second argument is the endpoint URL
-xhr.open('GET', 'https://raw.githubusercontent.com/dipanshuraz/ticketing-system/master/moviedb.json');
+xhr.open('GET', 'https://my-personal-db.herokuapp.com/movies');
 xhr.send();
 
 
