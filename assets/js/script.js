@@ -6,5 +6,3 @@ getCity.addEventListener('click', (e) => {
   localStorage.setItem('city', city)
   window.location.href = '/movies.html'
 })
-
-

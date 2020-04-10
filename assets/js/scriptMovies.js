@@ -32,19 +32,18 @@ xhr.send();
 
 const fetchMovies = (getMovies) => {
   let out = "";
-  getMovies.length == 0 ? out = 'Opps' :
-    getMovies.forEach(function (movie) {
-      out += `<div class='col-xs-5 col-sm-4 col-md-3 d-flex justify-content-center my-3'>
+
+  getMovies.forEach(function (movie) {
+    out += `<div class='col-xs-5 col-sm-4 col-md-3 d-flex justify-content-center my-3'>
     <div class="text-center">
     <img src="${movie.Poster}" class= "img-fluid" alt="" width="180px">
     <h5 class="my-2">${movie.Title}</h5>
-    <small>${movie.genre}</small>
-    <small>${movie.language}</small>
+    <p>Genre : ${movie.genre} Language : ${movie.language}</p>
     <a href="https://www.imdb.com/title/${movie.imdbID}" class="btn btn-outline-primary btn-sm-block">IMDB</a>
     <a href="#" id="movie-details" onclick="selectMovie('${movie.imdbID}')" class="btn btn-success btn-sm-block">Book Now</a>
     </div>
   </div>`;
-    });
+  });
 
   $("#movies").html(out);
 }
@@ -56,41 +55,49 @@ let getGenre = document.getElementById('getGenre')
 getLanguage.addEventListener('change', (e) => {
   let lang = getLanguage.value
   localStorage.setItem('lang', lang)
-  console.log(lang)
-  let data = []
-  let genre = localStorage.getItem('genre')
-  if (genre != undefined && genre != "") {
-
-    getMovies.forEach((elem) => {
-      if (elem.language == lang && elem.genre == genre) {
-        data.push(elem)
-      }
-    })
-
-  } else {
-    data = getMovies.filter((elem) => elem.language == lang)
-  }
-
+  let genre = localStorage.getItem("genre")
+  let data = getData(genre, lang) || []
   fetchMovies(data)
 
 })
 
 getGenre.addEventListener('change', (e) => {
-  let data = []
   let genre = getGenre.value
   localStorage.setItem('genre', genre)
-  console.log(genre)
   let lang = localStorage.getItem('lang')
+  let data = getData(genre, lang) || []
+  fetchMovies(data)
+})
 
-  if (lang != undefined && lang != "") {
+
+function getData(genre, lang) {
+  console.log(genre, lang)
+  if (genre == "" && lang == "") {
+    return getMovies
+  } else if (genre != "" && lang == "") {
+    let data = [];
     getMovies.forEach((elem) => {
-      if (elem.language == lang && elem.genre == genre) {
+      if (elem.genre == genre) {
         data.push(elem)
       }
     })
-
-  } else {
-    data = getMovies.filter((elem) => elem.language == lang)
+    return data
+  } else if (genre == "" && lang != "") {
+    let data = [];
+    getMovies.forEach((elem) => {
+      if (elem.language == lang) {
+        data.push(elem)
+      }
+    })
+    return data
+  } else if (genre != "" && lang != "") {
+    let data = [];
+    getMovies.forEach((elem) => {
+      if (elem.genre == genre && elem.language == lang) {
+        data.push(elem)
+      }
+    })
+    return data
   }
-  fetchMovies(data)
-})
+  return getMovies
+}
