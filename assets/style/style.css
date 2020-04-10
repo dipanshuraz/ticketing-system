@@ -1,0 +1,40 @@
+* {
+  font-family: 'Baloo Paaji 2', cursive;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input[list ='location'] {
+  height: 40px;
+  width: 200px;
+  text-indent: 10px;
+  border: 0px;
+  border-bottom: 2px solid black;
+  outline: none;
+}
+
+/* font size */
+
+.rem1 {
+  font-size: 1rem;
+}
+.rem15 {
+  font-size: 1.5rem;
+}
+.rem2 {
+  font-size: 2rem;
+}
+
+/* header */
+header {
+  height: 20vh;
+}
+main {
+  
+  
+}
+footer {
+  
+  
+}
