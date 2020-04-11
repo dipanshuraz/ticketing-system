@@ -2,6 +2,9 @@
 
 ### Movie Ticket System
 
+- [x] frontend  - Netlify
+- [x] Json Server - Heroku
+
 ## Problem Statement
 
 Design and develop a ticketing system. 
