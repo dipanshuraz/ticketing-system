@@ -23,13 +23,13 @@ Open Here  -
  BootStrap
  
 ### Features implemented:
-1. movies by Location
-2. Filter by genre and language.
-3. Select Movie & check details
-4. Select Seats & get Price
-5. Reset selection
-6. Confirm Bookings
-7. Print Tickets
+[x] movies by Location
+[x] Filter by genre and language.
+[x] Select Movie & check details
+[x] Select Seats & get Price
+[x] Reset selection
+[x] Confirm Bookings
+[x] Print Tickets
 
 Step 1 : 
 ![Screenshot](./extra/1.png)
