@@ -2,6 +2,15 @@
 
 ### Movie Ticket System
 
+- [x] frontend  - Netlify
+- [x] Json Server - Heroku
+
+### Open Source
+
+you can use my JSON server for you project 
+[ **JSON Server Heroku** ](https://my-personal-db.herokuapp.com/)
+
+
 ## Problem Statement
 
 Design and develop a ticketing system. 
@@ -21,10 +30,15 @@ Open Here  -
  CSS3 
  JavaScript
  BootStrap
-
-### Features
-
-
+ 
+### Features implemented:
+- [x] movies by Location
+- [x] Filter by genre and language.
+- [x] Select Movie & check details
+- [x] Select Seats & get Price
+- [x] Reset selection
+- [x] Confirm Bookings
+- [x] Print Tickets
 
 Step 1 : 
 ![Screenshot](./extra/1.png)
