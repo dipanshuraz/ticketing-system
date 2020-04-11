@@ -29,6 +29,7 @@ Open Here  -
 4. Select Seats & get Price
 5. Reset selection
 6. Confirm Bookings
+7. Print Tickets
 
 Step 1 : 
 ![Screenshot](./extra/1.png)
