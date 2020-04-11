@@ -14,7 +14,6 @@ xhr.onload = function () {
     let getCityLocal = localStorage.getItem('city')
     getMovies = movies.filter((elem) => elem.city.includes(getCityLocal))
 
-
     fetchMovies(getMovies)
     // Runs when the request is successful
   } else {
@@ -28,6 +27,7 @@ xhr.onload = function () {
 // The second argument is the endpoint URL
 xhr.open('GET', 'https://my-personal-db.herokuapp.com/movies');
 xhr.send();
+
 
 
 const fetchMovies = (getMovies) => {
@@ -48,6 +48,10 @@ const fetchMovies = (getMovies) => {
   $("#movies").html(out);
 }
 
+// get city, lang & genre from local storage for movies page
+let getCity = document.getElementById('getCity')
+let city = localStorage.getItem('city')
+getCity.innerText = city
 
 let getLanguage = document.getElementById('getLanguage')
 let getGenre = document.getElementById('getGenre')
@@ -58,7 +62,6 @@ getLanguage.addEventListener('change', (e) => {
   let genre = localStorage.getItem("genre")
   let data = getData(genre, lang) || []
   fetchMovies(data)
-
 })
 
 getGenre.addEventListener('change', (e) => {
@@ -101,3 +104,4 @@ function getData(genre, lang) {
   }
   return getMovies
 }
+
