@@ -28,13 +28,23 @@ input[list ='location'] {
 
 /* header */
 header {
-  height: 20vh;
+  height: 15vh;
 }
-main {
-  
-  
+
+
+/* Display  */
+.screen {
+  height: 3rem;
+  width: 100%;
+  clip-path: polygon(0% 0%, 5% 100%, 25% 100%, 25% 100%, 95% 100%, 100% 0%);
+  border: 2px solid black;
+  background-color: rgb(230, 230, 230);
 }
-footer {
-  
-  
+.rowSeat img {
+  margin:0px 4px;
+
+}
+
+.details {
+  height: 100%;
 }

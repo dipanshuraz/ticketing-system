@@ -15,6 +15,7 @@ xhr.onload = function () {
     getMovies = movies.filter((elem) => elem.city.includes(getCityLocal))
 
     fetchMovies(getMovies)
+    console.log(getMovies)
     // Runs when the request is successful
   } else {
     // Runs when it's not
@@ -27,8 +28,6 @@ xhr.onload = function () {
 // The second argument is the endpoint URL
 xhr.open('GET', 'https://my-personal-db.herokuapp.com/movies');
 xhr.send();
-
-
 
 const fetchMovies = (getMovies) => {
   let out = "";
@@ -105,3 +104,7 @@ function getData(genre, lang) {
   return getMovies
 }
 
+function selectMovie(id) {
+  localStorage.setItem('movie', id)
+  window.location.href = '/bookPage.html'
+}
