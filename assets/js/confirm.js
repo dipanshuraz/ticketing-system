@@ -46,7 +46,6 @@ function getMoviesDetails() {
 
 
 function cancelNow() {
-
   localStorage.clear()
   window.location.href = '/index.html'
 }

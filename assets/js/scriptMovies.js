@@ -1,33 +1,28 @@
 var movies
 let getMovies
 // Set up our HTTP request
-var xhr = new XMLHttpRequest();
 
-// Setup our listener to process completed requests
-xhr.onload = function () {
+document.addEventListener('DOMContentLoaded', () => {
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function () {
+    if (xhr.status >= 200 && xhr.status < 300) {
 
-  // Process our return data
-  if (xhr.status >= 200 && xhr.status < 300) {
+      movies = JSON.parse(xhr.responseText);
+      let getCityLocal = localStorage.getItem('city')
+      getMovies = movies.filter((elem) => elem.city.includes(getCityLocal))
 
-    movies = JSON.parse(xhr.responseText);
+      fetchMovies(getMovies)
+      console.log(getMovies)
 
-    let getCityLocal = localStorage.getItem('city')
-    getMovies = movies.filter((elem) => elem.city.includes(getCityLocal))
+    } else {
 
-    fetchMovies(getMovies)
-    console.log(getMovies)
-    // Runs when the request is successful
-  } else {
-    // Runs when it's not
-    console.log(JSON.parse(xhr.responseText));
-  }
-};
+      console.log(JSON.parse(xhr.responseText));
+    }
+  };
+  xhr.open('GET', 'https://my-personal-db.herokuapp.com/movies');
+  xhr.send();
+})
 
-// Create and send a GET request
-// The first argument is the post type (GET, POST, PUT, DELETE, etc.)
-// The second argument is the endpoint URL
-xhr.open('GET', 'https://my-personal-db.herokuapp.com/movies');
-xhr.send();
 
 const fetchMovies = (getMovies) => {
   let out = "";
